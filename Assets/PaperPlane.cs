@@ -43,6 +43,7 @@ namespace PaperPlane
 
             public Vector3 Pos => new Vector3(this.r, this.h, 0);
             public Quaternion Rot=> Quaternion.Euler(0, 0, this.y * Mathf.Rad2Deg);
+            public Quaternion RotModel => Quaternion.Euler(0, 0, (this.y + this.attackAngle) * Mathf.Rad2Deg);
 
             public void PrepareParameters(Plane other = null)
             {
@@ -121,15 +122,22 @@ namespace PaperPlane
 
         [SerializeField] protected Plane plane = new Plane();
         [SerializeField] protected Plane planeCurve = new Plane();
+
+        protected void UpdatePlaneModel()
+        {
+            this.transform.position = new Vector3(this.plane.Pos.x, this.plane.Pos.y, this.transform.position.z);
+            this.transform.rotation = this.plane.RotModel;
+        }
         protected void Start()
         {
             this.plane.PrepareParameters();
+            this.UpdatePlaneModel();
         }
+
         protected void OnValidate()
         {
             this.plane.PrepareParameters();
-            this.transform.position = new Vector3(this.plane.Pos.x, this.plane.Pos.y,this.transform.position.z);
-            this.transform.rotation = this.plane.Rot;
+            this.UpdatePlaneModel();
         }
 
         protected void Update()
@@ -141,8 +149,7 @@ namespace PaperPlane
                 this.plane.Process(Time.deltaTime/8 * this.timeScale);
             }
 
-            this.transform.position = new Vector3(this.plane.Pos.x, this.plane.Pos.y, this.transform.position.z);
-            this.transform.rotation = this.plane.Rot;
+            this.UpdatePlaneModel();
         }
 
         protected void OnDrawGizmos()
