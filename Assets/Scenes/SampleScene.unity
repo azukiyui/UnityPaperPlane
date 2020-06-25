@@ -334,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457672765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1029777692}
@@ -356,9 +356,9 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   timeScale: 1
   plane:
-    initV: 10.13
-    initY: 0
-    initH: 0
+    initSpeed: 6.76
+    initAngle: 0
+    initHeight: 2
     m: 0.003
     wingsSpan: 0.12
     S: 0.017
@@ -369,15 +369,15 @@ MonoBehaviour:
     CLx: 1.2757069
     CL: 0.20706716
     CD: 0.03790262
-    v: 10.13
+    v: 6.76
     y: 0
-    h: 0
+    h: 2
     r: 0
     t: 0
   planeCurve:
-    initV: 10.13
-    initY: 0
-    initH: 0
+    initSpeed: 6.76
+    initAngle: 0
+    initHeight: 2
     m: 0.003
     wingsSpan: 0.12
     S: 0.017
@@ -388,10 +388,10 @@ MonoBehaviour:
     CLx: 1.2757069
     CL: 0.20706716
     CD: 0.03790262
-    v: 3.828093
-    y: 6.129524
-    h: -1.8097304
-    r: 14.372111
+    v: 3.7659388
+    y: -0.1843554
+    h: -0.25693628
+    r: 16.91173
     t: 4.99982
 --- !u!1 &486837333
 GameObject:
@@ -1172,9 +1172,9 @@ MonoBehaviour:
   color: {r: 0, g: 0.92451954, b: 1, a: 1}
   timeScale: 1
   plane:
-    initV: 6.7
-    initY: 11.24
-    initH: 0
+    initSpeed: 8.5
+    initAngle: 20.87
+    initHeight: 2
     m: 0.003
     wingsSpan: 0.12
     S: 0.017
@@ -1185,15 +1185,15 @@ MonoBehaviour:
     CLx: 1.2757069
     CL: 0.20706716
     CD: 0.03790262
-    v: 6.7
-    y: 0.19617501
-    h: 0
+    v: 8.5
+    y: 0.3642502
+    h: 2
     r: 0
     t: 0
   planeCurve:
-    initV: 6.7
-    initY: 11.24
-    initH: 0
+    initSpeed: 8.5
+    initAngle: 20.87
+    initHeight: 2
     m: 0.003
     wingsSpan: 0.12
     S: 0.017
@@ -1204,10 +1204,10 @@ MonoBehaviour:
     CLx: 1.2757069
     CL: 0.20706716
     CD: 0.03790262
-    v: 3.7721903
-    y: -0.1772769
-    h: -2.2491934
-    r: 16.471973
+    v: 3.8204823
+    y: 6.121991
+    h: 0.009464629
+    r: 14.327049
     t: 4.99982
 --- !u!4 &1452388765
 Transform:
@@ -1216,8 +1216,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452388763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.18111993, w: 0.983461}
+  m_LocalPosition: {x: 0, y: 2, z: -1.521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 668278648}
@@ -1726,9 +1726,9 @@ MonoBehaviour:
   color: {r: 0.8396226, g: 0.031683847, b: 0.031683847, a: 1}
   timeScale: 1
   plane:
-    initV: 7.85
-    initY: 31.93
-    initH: 0
+    initSpeed: 9.17
+    initAngle: 0
+    initHeight: 2
     m: 0.003
     wingsSpan: 0.12
     S: 0.017
@@ -1739,15 +1739,15 @@ MonoBehaviour:
     CLx: 1.2757069
     CL: 0.20706716
     CD: 0.03790262
-    v: 7.85
-    y: 0.55728364
-    h: 0
+    v: 9.17
+    y: 0
+    h: 2
     r: 0
     t: 0
   planeCurve:
-    initV: 7.85
-    initY: 31.93
-    initH: 0
+    initSpeed: 9.17
+    initAngle: 0
+    initHeight: 2
     m: 0.003
     wingsSpan: 0.12
     S: 0.017
@@ -1758,10 +1758,10 @@ MonoBehaviour:
     CLx: 1.2757069
     CL: 0.20706716
     CD: 0.03790262
-    v: 3.8068945
-    y: 6.127554
-    h: -2.1701846
-    r: 14.2573185
+    v: 3.8384743
+    y: 6.1023407
+    h: 0.15219598
+    r: 14.760375
     t: 4.99982
 --- !u!4 &1923883941
 Transform:
@@ -1771,7 +1771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923883939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 1.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1355973806}

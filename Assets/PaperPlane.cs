@@ -13,9 +13,9 @@ namespace PaperPlane
         [Serializable]
         public class Plane
         {
-            [SerializeField] protected float initV = 3.7f;
-            [SerializeField] protected float initY = 0;
-            [SerializeField] protected float initH = 2;
+            [SerializeField] protected float initSpeed = 3.7f;
+            [SerializeField] protected float initAngle = 0;
+            [SerializeField] protected float initHeight = 2;
 
             [SerializeField] protected float m = 0.003f;//weight kg
             [SerializeField] protected float wingsSpan = 0.12f; //m
@@ -48,9 +48,9 @@ namespace PaperPlane
             {
                 if (other != null)
                 {
-                    this.initV = other.initV;
-                    this.initY = other.initY;
-                    this.initH = other.initH;
+                    this.initSpeed = other.initSpeed;
+                    this.initAngle = other.initAngle;
+                    this.initHeight = other.initHeight;
 
                     this.m = other.m;
                     this.wingsSpan = other.wingsSpan;
@@ -70,10 +70,10 @@ namespace PaperPlane
                 var e = 1 / (Mathf.PI * 0.9f * ar);
                 this.CD = 0.02f + e * CL * CL;
 
-                this.v = this.initV;
-                this.y = this.initY * Mathf.Deg2Rad;
+                this.v = this.initSpeed;
+                this.y = this.initAngle * Mathf.Deg2Rad;
 
-                this.h = this.initH;
+                this.h = this.initHeight;
                 this.r = 0;
                 this.t = 0;
             }
@@ -125,6 +125,12 @@ namespace PaperPlane
         {
             this.plane.PrepareParameters();
         }
+        protected void OnValidate()
+        {
+            this.plane.PrepareParameters();
+            this.transform.position = new Vector3(this.plane.Pos.x, this.plane.Pos.y,this.transform.position.z);
+            this.transform.rotation = this.plane.Rot;
+        }
 
         protected void Update()
         {
@@ -135,23 +141,23 @@ namespace PaperPlane
                 this.plane.Process(Time.deltaTime/8 * this.timeScale);
             }
 
-            this.transform.position = this.plane.Pos;
+            this.transform.position = new Vector3(this.plane.Pos.x, this.plane.Pos.y, this.transform.position.z);
             this.transform.rotation = this.plane.Rot;
         }
 
         protected void OnDrawGizmos()
         {
             Gizmos.color = this.color;
-            this.plane.PrepareParameters();
             this.planeCurve.PrepareParameters(this.plane);
 
-            Gizmos.DrawRay(this.plane.Pos, this.plane.Rot * Vector3.right);
+            var pos = new Vector3(this.plane.Pos.x, this.plane.Pos.y, this.transform.position.z); ;
+            Gizmos.DrawRay(pos, this.plane.Rot * Vector3.right);
 
             for (var i = 0; i < 5000; ++i)
             {
-                var prev = this.planeCurve.Pos;
+                var prev = new Vector3(this.planeCurve.Pos.x, this.planeCurve.Pos.y, this.transform.position.z);
                 this.planeCurve.Process(0.001f);
-                var pos = this.planeCurve.Pos;
+                pos = new Vector3(this.planeCurve.Pos.x, this.planeCurve.Pos.y, this.transform.position.z);
 
                 Gizmos.DrawLine(prev, pos);
             }
